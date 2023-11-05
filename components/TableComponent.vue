@@ -3,7 +3,7 @@ const props = defineProps(['params'])
 const id = ref('')
 const route = useRoute()
 const { data: info } = await useAsyncData(() => {
-    return $fetch(`http://localhost:5000/collections/${route.params.name}/${id}`, {
+    return $fetch(`https://drvcash.com/api/collections/${route.params.name}/${id}`, {
         method: 'DELETE'
     })
 }, {
@@ -15,7 +15,7 @@ const { data: info } = await useAsyncData(() => {
     // const config = useRuntimeConfig()
 
     // console.log(uuid)
-    // const { data } = await useFetch(`http://localhost:5000/collections/firstParams/${uuid}`, {
+    // const { data } = await useFetch(`https://drvcash.com/api/collections/firstParams/${uuid}`, {
     //     method: 'DELETE'
     // })
     // console.log(id.value)

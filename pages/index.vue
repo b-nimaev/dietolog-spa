@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data } = await useFetch('http://localhost:5000/collections')
+const { data } = await useFetch('https://drvcash.com/api/collections')
 </script>
 
 <template>

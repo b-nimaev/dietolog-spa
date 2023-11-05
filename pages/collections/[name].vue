@@ -12,24 +12,21 @@ const id = ref(1)
 const req = ref(1)
 
 const { data: info } = await useAsyncData(() => {
-    return $fetch(`http://localhost:5000/collections/${route.params.name}`)
+    return $fetch(`https://drvcash.com/api/collections/${route.params.name}`)
 }, {
     watch: [id]
 })
 
 let { data: posts }: any = await useAsyncData(() => {
-    return $fetch(`http://localhost:5000/collections/${route.params.name}/getVectors`)
+    return $fetch(`https://drvcash.com/api/collections/${route.params.name}/getVectors`)
 }, {
     watch: [id],
     // immediate: false
 })
 
 async function upsert() {
-    // posts = await useFetch(`http://localhost:5000/collections/${route.params.name}/getVectors`)
 
-
-    // posts = $fetch(`http://localhost:5000/collections/${route.params.name}/getVectors`)
-    await $fetch(`http://localhost:5000/collections/${route.params.name}/insert`, {
+    await $fetch(`https://drvcash.com/api/collections/${route.params.name}/insert`, {
         method: 'POST',
         body: {
             question: question.value,
@@ -62,7 +59,7 @@ async function deleteVector(vector: string) {
     //     method: 'DELETE'
     // })}
 
-    await $fetch(`http://localhost:5000/collections/${route.params.name}/${vector}`, {
+    await $fetch(`https://drvcash.com/api/collections/${route.params.name}/${vector}`, {
         method: 'DELETE',
     }).then(() => {
         console.log('deleted')

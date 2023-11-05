@@ -6,7 +6,7 @@ const question = ref('')
 const answer = ref('')
 
 const { data: promts }: any = await useAsyncData(() => {
-    return $fetch(`http://localhost:5000/promts`)
+    return $fetch(`https://drvcash.com/api/promts`)
 }, {
     watch: [id],
     // immediate: false
@@ -20,7 +20,7 @@ async function deletePromt(id: string) {
 }
 async function quest() {
     try {
-        return $fetch(`http://localhost:5000/promts/test`, {
+        return $fetch(`https://drvcash.com/api/promts/test`, {
             method: 'POST',
             body: {
                 question: question.value
